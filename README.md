@@ -204,6 +204,10 @@ Inclua testes unitários para garantir a integridade da aplicação.
 ```bash
 npm run test
 ```
+ou
+```bash
+yarn test
+```
 
 ---
 
