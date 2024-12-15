@@ -4,7 +4,7 @@ Este projeto é uma API REST desenvolvida com **NestJS**, **Prisma** e **MySQL**
 
 ---
 
-## **Funcionalidades**
+## **✨ Funcionalidades**
 
 1. **Users (Usuários):**
    - Cadastro de usuários.
@@ -19,7 +19,7 @@ Este projeto é uma API REST desenvolvida com **NestJS**, **Prisma** e **MySQL**
 
 ---
 
-## **Tabela de Endpoints do Módulo Users**
+## **📋 Tabela de Endpoints do Módulo Users**
 
 | Método | Endpoint   | Descrição                        | Payload / Parâmetro |
 |---------|------------|------------------------------------|----------------------|
@@ -31,7 +31,7 @@ Este projeto é uma API REST desenvolvida com **NestJS**, **Prisma** e **MySQL**
 
 ---
 
-## **Configuração do Projeto**
+## **⚙️ Configuração do Projeto**
 
 ### **1. Requisitos**
 
@@ -102,7 +102,7 @@ A API estará disponível em `http://localhost:3000`.
 
 ---
 
-## **Endpoints**
+## **🌐 Endpoints**
 
 ### **Users Module**
 
@@ -163,7 +163,7 @@ A API estará disponível em `http://localhost:3000`.
 
 ---
 
-## **Tecnologias Utilizadas**
+## **💻 Tecnologias Utilizadas**
 
 - **NestJS**: Framework para construção de aplicações Node.js.
 - **Prisma**: ORM para manipulação do banco de dados.
@@ -173,7 +173,7 @@ A API estará disponível em `http://localhost:3000`.
 
 ---
 
-## **Fluxo da API**
+## **🔄 Fluxo da API**
 
 ### **Registro e Login**
 1. O usuário faz o registro enviando seus dados para `/users`.
@@ -185,7 +185,7 @@ As rotas do módulo **Users** podem ser protegidas utilizando **Guards** com JWT
 
 ---
 
-## **Imagens Explicativas**
+## **🖼️ Imagens Explicativas**
 
 ### **Diagrama de Módulos**
 
@@ -197,7 +197,7 @@ As rotas do módulo **Users** podem ser protegidas utilizando **Guards** com JWT
 
 ---
 
-## **Testes**
+## **🧪 Testes**
 
 Inclua testes unitários para garantir a integridade da aplicação.
 
@@ -207,12 +207,6 @@ npm run test
 
 ---
 
-## **Contribuição**
-
-Contribuições são bem-vindas! Por favor, siga as diretrizes descritas no arquivo `CONTRIBUTING.md`.
-
----
-
-## **Licença**
+## **📜 Licença**
 
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo `LICENSE` para mais informações.
