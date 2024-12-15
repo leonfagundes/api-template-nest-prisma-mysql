@@ -1,99 +1,218 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# REST API com NestJS, Prisma e MySQL
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este projeto é uma API REST desenvolvida com **NestJS**, **Prisma** e **MySQL**, contendo dois módulos principais: **Users** (Usuários) e **Auth** (Autenticação). A API é equipada com encriptação de senhas utilizando a biblioteca **bcrypt** e geração de tokens para controle de acesso com **JWT** (JSON Web Token).
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## **Funcionalidades**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+1. **Users (Usuários):**
+   - Cadastro de usuários.
+   - Listagem de usuários.
+   - Detalhes de um usuário por ID.
+   - Atualização e exclusão de usuários.
 
-## Project setup
+2. **Auth (Autenticação):**
+   - Login com validação de credenciais.
+   - Geração de token JWT para autenticação.
+   - Validação de token JWT para acesso às rotas protegidas.
 
-```bash
-$ yarn install
+---
+
+## **Tabela de Endpoints do Módulo Users**
+
+| Método | Endpoint   | Descrição                        | Payload / Parâmetro |
+|---------|------------|------------------------------------|----------------------|
+| POST    | `/users`   | Cria um novo usuário              | `username`, `email`, `password` |
+| GET     | `/users`   | Lista todos os usuários           | - |
+| GET     | `/users/:id` | Busca um usuário por ID          | `id` |
+| PUT     | `/users/:id` | Atualiza os dados de um usuário   | `id`, dados parciais de usuário |
+| DELETE  | `/users/:id` | Remove um usuário por ID         | `id` |
+
+---
+
+## **Configuração do Projeto**
+
+### **1. Requisitos**
+
+- Node.js (v16 ou superior)
+- MySQL
+- NestJS CLI
+
+### **2. Configuração do Banco de Dados**
+
+Certifique-se de ter o MySQL em funcionamento e configure o arquivo `.env` com as seguintes variáveis:
+
+```env
+DATABASE_URL=mysql://username:password@localhost:3306/database_name
+JWT_SECRET=seu_segredo_para_jwt
 ```
 
-## Compile and run the project
+### **3. Instalação**
 
+Clone o repositório e instale as dependências usando o gerenciador de pacotes de sua preferência:
+
+#### Usando npm
 ```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+git clone <repo_url>
+cd <repo_name>
+npm install
 ```
 
-## Run tests
-
+#### Usando yarn
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+git clone <repo_url>
+cd <repo_name>
+yarn install
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+#### Usando pnpm
 ```bash
-$ yarn install -g mau
-$ mau deploy
+git clone <repo_url>
+cd <repo_name>
+pnpm install
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Em seguida, gere as migrações e sincronize o banco de dados:
 
-## Resources
+```bash
+npx prisma migrate dev
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### **4. Executando o Servidor**
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Inicie o servidor de desenvolvimento:
 
-## Support
+#### Usando npm
+```bash
+npm run start:dev
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+#### Usando yarn
+```bash
+yarn start:dev
+```
 
-## Stay in touch
+#### Usando pnpm
+```bash
+pnpm run start:dev
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+A API estará disponível em `http://localhost:3000`.
 
-## License
+---
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## **Endpoints**
+
+### **Users Module**
+
+#### **1. Criar um novo usuário**
+- **POST** `/users`
+- **Payload**:
+
+```json
+{
+  "username": "exemplo",
+  "email": "exemplo@email.com",
+  "password": "senha123"
+}
+```
+
+#### **2. Listar todos os usuários**
+- **GET** `/users`
+
+#### **3. Buscar usuário por ID**
+- **GET** `/users/:id`
+
+#### **4. Atualizar um usuário**
+- **PUT** `/users/:id`
+- **Payload**:
+
+```json
+{
+  "username": "novo_nome",
+  "email": "novo_email@email.com"
+}
+```
+
+#### **5. Deletar um usuário**
+- **DELETE** `/users/:id`
+
+---
+
+### **Auth Module**
+
+#### **1. Login**
+- **POST** `/auth/login`
+- **Payload**:
+
+```json
+{
+  "email": "exemplo@email.com",
+  "password": "senha123"
+}
+```
+
+- **Resposta**:
+
+```json
+{
+  "accessToken": "token_jwt"
+}
+```
+
+---
+
+## **Tecnologias Utilizadas**
+
+- **NestJS**: Framework para construção de aplicações Node.js.
+- **Prisma**: ORM para manipulação do banco de dados.
+- **MySQL**: Banco de dados relacional.
+- **bcrypt**: Biblioteca para hash de senhas.
+- **JWT**: Biblioteca para autenticação e autorização.
+
+---
+
+## **Fluxo da API**
+
+### **Registro e Login**
+1. O usuário faz o registro enviando seus dados para `/users`.
+2. O login é feito com e-mail e senha em `/auth/login`.
+3. Um token JWT é retornado e utilizado para autenticação em outras rotas.
+
+### **Proteção de Rotas**
+As rotas do módulo **Users** podem ser protegidas utilizando **Guards** com JWT.
+
+---
+
+## **Imagens Explicativas**
+
+### **Diagrama de Módulos**
+
+![Diagrama de Módulos](https://via.placeholder.com/800x400?text=Diagrama+de+M%C3%B3dulos)
+
+### **Fluxo de Autenticação**
+
+![Fluxo de Autenticação](https://via.placeholder.com/800x400?text=Fluxo+de+Autentica%C3%A7%C3%A3o)
+
+---
+
+## **Testes**
+
+Inclua testes unitários para garantir a integridade da aplicação.
+
+```bash
+npm run test
+```
+
+---
+
+## **Contribuição**
+
+Contribuições são bem-vindas! Por favor, siga as diretrizes descritas no arquivo `CONTRIBUTING.md`.
+
+---
+
+## **Licença**
+
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo `LICENSE` para mais informações.
