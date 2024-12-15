@@ -1,6 +1,12 @@
-# REST API com NestJS, Prisma e MySQL
+# <img src="https://github.com/leonfagundes27/Assets/blob/main/Images/api.png" alt="API Logo" width="50" style="vertical-align: middle;"/> REST API com NestJS, Prisma e MySQL 
 
 Este projeto é uma API REST desenvolvida com **NestJS**, **Prisma** e **MySQL**, contendo dois módulos principais: **Users** (Usuários) e **Auth** (Autenticação). A API é equipada com encriptação de senhas utilizando a biblioteca **bcrypt** e geração de tokens para controle de acesso com **JWT** (JSON Web Token).
+
+<p align="center">
+   <img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="MySQL" width="110 style="margin-right: 15px;"/>
+   <img src="https://github.com/nimasfl/nestjs-icons/blob/master/file_type_nestjs.svg" alt="NestJS" width="85" style="margin-right: 15px;"/>
+   <img src="https://cdn.worldvectorlogo.com/logos/prisma-3.svg" alt="Prisma" width="65" style="margin-right: 15px;"/>
+</p>
 
 ---
 
