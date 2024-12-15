@@ -193,7 +193,7 @@ As rotas do módulo **Users** podem ser protegidas utilizando **Guards** com JWT
 
 ### **Fluxo de Autenticação**
 
-![Fluxo de Autenticação](https://via.placeholder.com/800x400?text=Fluxo+de+Autentica%C3%A7%C3%A3o)
+![Fluxo de Autenticação](https://github.com/leonfagundes27/Assets/blob/main/diagrama-auth.jpg)
 
 ---
 
