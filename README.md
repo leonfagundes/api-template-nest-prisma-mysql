@@ -189,11 +189,11 @@ As rotas do módulo **Users** podem ser protegidas utilizando **Guards** com JWT
 
 ### **Diagrama de Módulos**
 
-![Diagrama de Módulos](https://via.placeholder.com/800x400?text=Diagrama+de+M%C3%B3dulos)
+![Diagrama de Módulos](https://github.com/leonfagundes27/Assets/blob/main/Images/modules-api-diagrama.jpg)
 
 ### **Fluxo de Autenticação**
 
-![Fluxo de Autenticação](https://github.com/leonfagundes27/Assets/blob/main/diagrama-auth.jpg)
+![Fluxo de Autenticação](https://github.com/leonfagundes27/Assets/blob/main/Images/diagrama-auth.jpg)
 
 ---
 
